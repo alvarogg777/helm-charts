@@ -29,7 +29,7 @@ spec:
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+        - name: {{ . }}
       {{- end }}
       serviceAccountName: {{ include "postgres.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
